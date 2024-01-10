@@ -1,0 +1,32 @@
+<div *ngIf="pokemonList.length > 0" class="p-5">
+  <img
+    class="w-100 m-2"
+    src="../../assets/images/pokeapi-logo.png"
+    alt="logo"
+  />
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+  >
+    <!---todo add data-testid --->
+    <ng-container *ngFor="let pokemon of pokemonList">
+      <div
+        data-testid="pokemon-list"
+        class="bg-gray-800 p-4 rounded-lg shadow-lg hover:shadow-md hover:ring-4 hover:ring-yellow-400 transition-transform transform hover:scale-105"
+      >
+        <img
+          [src]="getPokemonImageUrl(pokemon.url)"
+          alt="{{ pokemon.name }}"
+          class="w-full h-auto"
+        />
+
+        <!---todo add data-testid --->
+        <p
+          data-testid="list-pokemon-name"
+          class="text-white text-center"
+        >
+          {{ pokemon.name }}
+        </p>
+      </div>
+    </ng-container>
+  </div>
+</div>
